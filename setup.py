@@ -2,10 +2,6 @@
 
 import setuptools
 
-requrements = [
-	"flask",
-	"sqlalchemy"
-]
 
 setuptools.setup(
 	name="div-life",
@@ -15,9 +11,8 @@ setuptools.setup(
 	license="MIT",
 
 	packages=[
-
+		"src"
 	],
-	install_requires=requrements,
 	entry_points={
 		"console_scripts": [
 		]
