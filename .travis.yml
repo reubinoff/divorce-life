@@ -3,3 +3,4 @@
     - "3.6"
   script:
     - pytest
+    - cd src/client/div-client; ng build
