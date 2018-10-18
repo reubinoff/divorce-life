@@ -9,7 +9,6 @@ include:
     - "3.6"
   script:
     - pytest
-    - cd src/client/div-client; ng build
 
 
 # Second Job in node js.
