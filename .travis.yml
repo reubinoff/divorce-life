@@ -26,7 +26,7 @@ directories:
 
 before_install:
 - cd src/client/div-client
-- npm install
-- npm run-script buildA
+# - npm install
+# - npm run-script buildA
 
 
