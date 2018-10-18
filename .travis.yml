@@ -1,6 +1,33 @@
-  language: python
+matrix:
+
+include:
+
+  - language: python
+
+
   python:
     - "3.6"
   script:
     - pytest
     - cd src/client/div-client; ng build
+
+
+# Second Job in node js.
+- language: node_js
+node_js:
+- "6"
+
+addons:
+chrome: stable
+
+cache:
+directories:
+- $HOME/src/client/div-client/.npm
+
+
+before_install:
+- cd src/client/div-client
+- npm run-script buildA
+- npm install
+
+
