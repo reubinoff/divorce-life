@@ -11,22 +11,3 @@ include:
     - pytest
 
 
-# Second Job in node js.
-- language: node_js
-node_js:
-- "6"
-
-addons:
-chrome: stable
-
-cache:
-directories:
-- $HOME/src/client/div-client/.npm
-
-
-before_install:
-- cd src/client/div-client
-# - npm install
-# - npm run-script buildA
-
-
