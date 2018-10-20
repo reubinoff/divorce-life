@@ -11,7 +11,8 @@ setuptools.setup(
 	license="MIT",
 
 	packages=[
-		"src"
+		"src",
+		"src.workers"
 	],
 	entry_points={
 		"console_scripts": [
