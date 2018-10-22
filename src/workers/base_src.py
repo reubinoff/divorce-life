@@ -47,13 +47,22 @@ class BaseWorker(object):
 
 		service = self._services.get(name)
 		try:
-			method = getattr(service, method_name)
+			method = getattr(service, method_name, None)
+			if method is None:
+				return web.Response(text="method not found", status=404)
 		except AttributeError as e:
 			raise e
 
-		res = method(*args, **kwargs)
+		try:
+			res = method(*args, **kwargs)
+		except TypeError as e:
+			return web.Response(text="Invalid request. {}".format(e), status=403)
 
-		return web.Response(text=res)
+		data = {
+			"data": res or None,
+			"status": "OK"
+		}
+		return web.Response(text=json.dumps(data))
 
 	def _prepare_route(self):
 		self._app.add_routes([web.post('/{srv_name}/{srv_method}', self.handle)])
@@ -64,25 +73,4 @@ class BaseWorker(object):
 		web.run_app(self._app)
 
 
-class Test(BaseService):
-	def __init__(self, backgroud_worker):
-		super(Test, self).__init__(backgroud_worker)
-	def srv_foo(self, *args, **kwargs):
-		print("I am foo {}".format(kwargs))
-
-
-class Worker(BaseWorker):
-	def __init__(self):
-		super(Worker, self).__init__()
-		self.add_service('my_srv', Test(self))
-	
-	def run(self):
-		self.start()
-
-	
-
-
-if __name__ == "__main__":
-	worker = Worker()
-	worker.run()
 
