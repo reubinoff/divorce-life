@@ -1,4 +1,4 @@
-from base_src import BaseService, BaseWorker
+from .base_src import BaseService, BaseWorker
 
 
 
@@ -22,6 +22,8 @@ class ExpenseWorker(BaseWorker):
 		}
 
 
+async def get_app():
+	return ExpenseWorker().app
 
 if __name__ == "__main__":
 	worker = ExpenseWorker()

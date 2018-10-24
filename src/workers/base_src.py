@@ -14,7 +14,12 @@ class BaseWorker(object):
 		self._app = web.Application()
 		self._service_functions = collections.defaultdict(list)
 		self._services = dict()
+		self._prepare_route()
 
+
+	@property
+	def app(self):
+		return self._app
 
 	def add_service(self, srv_name, srv):
 		if isinstance(srv, BaseService) is False:
@@ -69,7 +74,6 @@ class BaseWorker(object):
 
 
 	def start(self):
-		self._prepare_route()
 		web.run_app(self._app)
 
 

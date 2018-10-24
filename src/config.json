@@ -1,0 +1,8 @@
+{
+	"workerks":{
+		"worker_name":{
+			"app": "src.workers.worker"
+		}
+	}
+
+}
