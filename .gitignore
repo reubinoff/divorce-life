@@ -112,3 +112,5 @@ dmypy.json
 
 
 resources/venv/
+src/static/
+src/templates/
