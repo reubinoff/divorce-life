@@ -13,5 +13,15 @@ class Config(object):
 		if os.path.isfile(self._config_file) is False:
 			print("invalid file")
 			return False
+		with open(self._config_file) as f:
+			self._config_data = json.load(f)
+
+	def get(self ,key, default_value=None):
+		return self._config_data.get(key, default_value)
+
+	def set(self, key, value):
+		if key is None:
+			raise KeyError
+		self._config_data['key'] = value
 
 

@@ -1,7 +1,9 @@
 {
-	"workerks":{
+	"workers":{
 		"worker_name":{
-			"app": "src.workers.worker"
+			"app": "src.workers.worker.ExpenseWorker",
+			"port": 8083
+
 		}
 	}
 

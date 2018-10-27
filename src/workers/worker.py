@@ -11,8 +11,8 @@ class ExpenseService(BaseService):
 
 
 class ExpenseWorker(BaseWorker):
-	def __init__(self):
-		super(ExpenseWorker, self).__init__()
+	def __init__(self, config_data):
+		super(ExpenseWorker, self).__init__(config_data)
 		self.add_service('expense_service', ExpenseService(self))
 	def get_list(self):
 		return {

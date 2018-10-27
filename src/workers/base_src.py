@@ -3,18 +3,23 @@ import inspect
 import collections
 import json
 
+
+DEFAULT_IP="localhost"
+DEFAULT_PORT=8088
+
 class BaseService(object):
 	def __init__(self, backgroud_worker):
 		self._worker = backgroud_worker
 
 
 class BaseWorker(object):
-	def __init__(self):
+	def __init__(self, config_data):
 		self._server = None
 		self._app = web.Application()
 		self._service_functions = collections.defaultdict(list)
 		self._services = dict()
 		self._prepare_route()
+		self._config = config_data
 
 
 	@property
@@ -74,7 +79,7 @@ class BaseWorker(object):
 
 
 	def start(self):
-		web.run_app(self._app)
+		web.run_app(self._app, host=self._config.get("ip", DEFAULT_IP), port=self._config.get("port", DEFAULT_PORT))
 
 
 
