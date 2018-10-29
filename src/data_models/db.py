@@ -6,33 +6,27 @@ DATABASE_URL = os.environ['DATABASE_URL']
 DEBUG = True
 
 class DBSession(object):
-	def __init__(self, session, factory):
-		self._session = session
-		self._factory = factory
+	def __init__(self, conn_string, db_tables):
+		self._con_string = conn_string
+		self._create_conn()
+		self.create_tables(db_tables)
 
 
-	def create_tables(self, tables):
+	def _create_tables(self, tables):
 		tables.metadata.create_all(self._factory.engine)
 
-
-class DBFactory(object):
-	def __init__(self, conn_string):
-		self._con_string = conn_string
-
 	def _create_conn(self):
+		print("Creating DB connection to {}".format(self._con_string))
 		self._engine = create_engine(self._con_string, echo=DEBUG)
 		self._connection = self._engine.connect()
 		session_class = orm.sessionmaker(bind=self._engine)
-		session = orm.scoped_session(session_class)
-		return DBSession(session)
+		self._session = orm.scoped_session(session_class)
 
 	@property
 	def engine(self):
 		return self._engine
 
-	@classmethod
-	def setup_db(cls, connection_string, db_tables)
-		session = cls(connection_string)
-
-		session.create_tables(db_tables)
-
+	@property
+	def db(self):
+		return self._session
+	
