@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  icsra: 
+    image: postgres
+    stdin_open: true
+    tty: true
+    environment:
+      POSTGRES_PASSWORD: 'example'
+      POSTGRES_USER : 'example'
+    ports:
+      - "5432:5432"
+
+volumes:
+  icsra_venv:
+    name: devenv_icsra_venv
+

@@ -5,4 +5,5 @@ gunicorn
 aiohttp
 asyncio
 
+psycopg2
 pytest
