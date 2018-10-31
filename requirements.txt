@@ -1,9 +1,11 @@
 flask
+flask_restful
 sqlalchemy
 gunicorn
 
 aiohttp
 asyncio
 
+psycopg2-binary
 psycopg2
 pytest
