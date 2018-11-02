@@ -11,10 +11,10 @@ setuptools.setup(
 	license="MIT",
 
 	packages=[
-		"src",
-		"src.data_models",
-		"src.handlers",
-		"src.routes"
+		"divorce_life",
+		"divorce_life.data_models",
+		"divorce_life.handlers",
+		"divorce_life.routes"
 	],
 	entry_points={
 		"console_scripts": [

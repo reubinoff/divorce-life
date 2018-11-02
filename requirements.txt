@@ -9,4 +9,5 @@ asyncio
 
 psycopg2-binary
 pytest
+pytest-cov
 codecov

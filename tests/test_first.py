@@ -1,6 +1,6 @@
 import pytest
 
-from src.handlers.expenses import ExpenseHandler
+from divorce_life.handlers.expenses import ExpenseHandler
 from .setting_env import db_factory
 
 
