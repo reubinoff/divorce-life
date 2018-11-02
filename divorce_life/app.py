@@ -1,2 +1,2 @@
 from . import app
-from .routes import errors, expenses
+from .routes import errors, expenses, home
