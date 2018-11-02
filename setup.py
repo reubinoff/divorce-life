@@ -12,7 +12,9 @@ setuptools.setup(
 
 	packages=[
 		"src",
-		"src.workers"
+		"src.data_models",
+		"src.handlers",
+		"src.routes"
 	],
 	entry_points={
 		"console_scripts": [

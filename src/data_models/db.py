@@ -54,6 +54,10 @@ class DBSessionFactory(object):
 	def engine(self):
 		return self._engine
 
+
+	def close(self):
+		self._connection.close()
+
 class DBSession(object):
 	def __init__(self, session):
 		print("setting db session")
