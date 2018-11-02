@@ -1,0 +1,42 @@
+{
+  "windows": [
+    {
+      "panes": [
+        {
+          "shell_command": [
+            "cd ../",
+            "vim .",
+            ]
+        },
+        {
+          "shell_command": [
+            "cd postgres/",
+            "docker-compose up"
+            ]
+          },
+        {
+          "shell_command": [
+          "clear",
+          "cd ..",
+          "source resources/venv/bin/activate",
+          "gunicorn  src.app:app"
+          ]
+
+        },
+        {
+          "shell_command": [
+          "clear",
+          "cd ..",
+          "source resources/venv/bin/activate"
+          ]
+
+        }
+
+      ],
+                  "layout": "0e58,208x57,0,0[208x28,0,0,26,208x28,0,29{104x28,0,29,27,103x28,105,29[103x14,105,29,28,103x13,105,44,29]}]",
+                  "window_name": "div"
+                  }
+                  ],
+                  "session_name": "debug_div"
+                  }
+

@@ -1,8 +1,13 @@
 flask
+flask_restful
 sqlalchemy
 gunicorn
+marshmallow
 
 aiohttp
 asyncio
 
+psycopg2-binary
 pytest
+pytest-cov
+codecov
