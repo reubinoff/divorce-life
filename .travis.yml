@@ -7,3 +7,4 @@
     - psql -c 'create database test;' -U postgres
   script:
     -  pytest -x -s -vvv  --disable-pytest-warnings
+    - codecov
