@@ -15,7 +15,7 @@ class ExpensesRoute(Resource):
 		"""
 		Get expenses list
 		"""
-		expenses = hanlers.expense.get_expenses()
+		expenses = handlers.expense.get_expenses()
 		schema = ExpenseSchema(many=True)
 		return schema.dump(expenses)
 
