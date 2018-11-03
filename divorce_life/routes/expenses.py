@@ -26,7 +26,7 @@ class ExpensesRoute(Resource):
 		"""
 
 		schema = ExpenseSchema()
-		expense = handlers.expense.add_expense(data.get("name"))
+		expense = handlers.expense.add_expense(data.get("name"), data.get("date_reported"), data.get("date_expense"))
 		return schema.dump(expense)
 
 

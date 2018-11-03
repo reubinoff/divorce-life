@@ -1,3 +1,4 @@
+import time, datetime
 from .setup_env import client
 from divorce_life.routes.errors import ResourceNotFound
 
@@ -10,7 +11,9 @@ def test_get_list(client):
 
 def test_add_expense(client):
 	body = {
-		"name": "test"
+		"name": "test",
+		"date_reported": datetime.datetime.now(),
+		"date_expense": datetime.datetime.now()
 	}
 	rv = client.post('/expenses', json=body)
 	assert "id" in rv.json
@@ -21,7 +24,9 @@ def test_add_expense(client):
 
 def test_delete_expense(client):
 	body = {
-		"name": "test"
+		"name": "test",
+		"date_reported": datetime.datetime.now(),
+		"date_expense": datetime.datetime.now()
 	}
 	rv_list_1 = client.get('/expenses').json
 	rv = client.post('/expenses', json=body)
@@ -43,7 +48,9 @@ def test_delete_expense(client):
 
 def test_update_expense(client):
 	body = {
-		"name": "test"
+		"name": "test",
+		"date_reported": datetime.datetime.now(),
+		"date_expense": datetime.datetime.now()
 	}
 	rv = client.post('/expenses', json=body)
 	assert "id" in rv.json

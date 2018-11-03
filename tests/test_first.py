@@ -1,4 +1,6 @@
 import pytest
+import datetime
+
 
 from divorce_life.handlers.expenses import ExpenseHandler
 from .setting_env import db_factory
@@ -6,14 +8,14 @@ from .setting_env import db_factory
 
 def test_add_get_Expense(db_factory):
 	handler = ExpenseHandler(db_factory)
-	expense = handler.add_expense("moshe")
+	expense = handler.add_expense("moshe", datetime.datetime.now(), datetime.datetime.now())
 	assert expense is not None
 	new_expense = handler.get_expense_by_id(expense.id)
 	assert new_expense is not None
 
 def test_update_get_Expense(db_factory):
 	handler = ExpenseHandler(db_factory)
-	expense = handler.add_expense("moshe")
+	expense = handler.add_expense("moshe", datetime.datetime.now(), datetime.datetime.now())
 	assert expense is not None
 	expense = handler.update_expense(expense.id, name="moshe_2")
 	new_expense = handler.get_expense_by_id(expense.id)
@@ -23,7 +25,7 @@ def test_update_get_Expense(db_factory):
 
 def test_delete_get_Expense(db_factory):
 	handler = ExpenseHandler(db_factory)
-	expense = handler.add_expense("moshe")
+	expense = handler.add_expense("moshe", datetime.datetime.now(), datetime.datetime.now())
 	assert expense is not None
 	new_expense = handler.get_expense_by_id(expense.id)
 	assert new_expense is not None

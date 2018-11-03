@@ -10,8 +10,8 @@ class ExpenseHandler(BaseHandler):
 		expense_list = self._db.query(Expense).all()
 		return expense_list
 
-	def add_expense(self, name):
-		expense = Expense(name=name)
+	def add_expense(self, name, date_reported, date_expense):
+		expense = Expense(name=name, date_reported=date_reported, date_expense=date_expense)
 		try:
 			self._db.add(expense)
 			self._db.commit()

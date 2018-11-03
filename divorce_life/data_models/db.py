@@ -34,7 +34,7 @@ class DBSessionFactory(object):
 			# verify that db exists
 			e = create_engine(DEBUG_FULL_PATH_DB)
 			connection = e.connect()
-		except OperationalError:
+		except sqlalchemy.exc.OperationalError:
 			# db doesnt exists. create it
 			e = create_engine(DEBUG_URL)
 			connection = e.connect()
